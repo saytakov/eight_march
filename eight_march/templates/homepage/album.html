@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Альбом получателя: {{ person.name }}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div id="carouselExample" class="carousel slide mb-5">
+  <div class="carousel-indicators">
+    {% for image_obj in object_list %}
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ forloop.counter0 }}" 
+              {% if forloop.first %}class="active" aria-current="true"{% endif %} 
+              aria-label="Slide {{ forloop.counter }}"></button>
+    {% endfor %}
+  </div>
+
+  <div class="carousel-inner">
+    {% for postcard in object_list %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <img src="{{ postcard.path_image.url }}" alt="Открытка для {{ person.name }}">
+      </div>
+    {% empty %}
+      <div class="carousel-item active d-flex align-items-center justify-content-center">
+        <p class="text-center" style="color: #2d1a21;">Нет открыток для этого получателя</p>
+      </div>
+    {% endfor %}
+  </div>
+  
+  {% if object_list.count > 1 %}
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Предыдущий</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Следующий</span>
+  </button>
+  {% endif %}
+</div>
+
+<div class="stories-section">
+  <div class="container-wide">
+		{% for postcard in object_list %}
+			<div class="story-card">
+				<img src="{{ postcard.path_image.url }}" alt="Картинка 1" class="story-image">
+				<div class="story-content">
+					<p class="story-text">{{ postcard.description }}</p>
+				</div>
+			</div>
+		{% endfor %}
+  </div>
+  
+  <div class="text-center mt-5 mb-4">
+    <a href="#" class="btn-custom">Наверх</a>
+  </div>
+</div>
+{% endblock content %}

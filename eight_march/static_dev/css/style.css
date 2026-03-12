@@ -1,0 +1,729 @@
+/* ===== СТИЛИ ДЛЯ КАРУСЕЛИ ===== */
+:root {
+  --bs-pink-300: #f6b4ce;  /* стандартный pink-300 из Bootstrap 5 (v5.3) */
+  --custom-bg: var(--bs-pink-300);
+  --custom-button-text: var(--bs-pink-300); /* текст кнопок равен цвету фона */
+}
+
+/* фон всей страницы — розовый */
+body {
+  background-color: var(--custom-bg) !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;  /* располагаем детей вертикально */
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+}
+
+/* контейнер-центровщик */
+.content-wrapper {
+  width: 100%;
+  padding: 1.5rem;
+}
+
+/* карточка с полупрозрачным фоном */
+.custom-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  border-radius: 2rem;
+}
+
+/* заголовок */
+.custom-title {
+  color: #3f202b;
+}
+
+/* белый текст для акцента */
+.white-text {
+  color: #ffffff;
+}
+
+/* основной текст */
+.custom-text {
+  color: #2f1720;
+}
+
+/* описание внизу */
+.custom-description {
+  color: #2d1a21;
+}
+
+/* разделитель */
+.custom-hr {
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* базовый стиль для всех кастомных кнопок */
+.btn-custom,
+.btn-custom:link,
+.btn-custom:visited {
+  background-color: #ffffff !important;        /* белый фон кнопки */
+  color: var(--custom-button-text) !important; /* розовый текст, совпадает с фоном */
+  border: none !important;
+  border-radius: 0.5rem;                       /* скругление, как у Bootstrap btn */
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: 0.15s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* легкая тень */
+}
+
+/* состояния наведения и фокуса */
+.btn-custom:hover,
+.btn-custom:focus {
+  background-color: #f2f2f2 !important;   /* чуть темнее белый при ховере */
+  color: var(--custom-button-text) !important;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(246, 180, 206, 0.5); /* розовая обводка под цвет фона */
+}
+
+/* активное состояние (нажатие) */
+.btn-custom:active {
+  background-color: #e6e6e6 !important;
+  color: var(--custom-button-text) !important;
+  transform: translateY(1px);
+}
+
+/* переопределение стандартных Bootstrap кнопок */
+.btn {
+  background-color: #ffffff !important;
+  color: var(--custom-button-text) !important;
+  border: none !important;
+}
+
+.btn:hover {
+  background-color: #f2f2f2 !important;
+  color: var(--custom-button-text) !important;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(246, 180, 206, 0.5) !important;
+}
+
+.btn:active {
+  background-color: #e6e6e6 !important;
+  color: var(--custom-button-text) !important;
+}
+
+/* дополнительные стили для ссылок (не кнопок) */
+a:not(.btn-custom):not(.btn) {
+  color: #7b3f4f;
+  text-decoration: underline;
+}
+
+/* код */
+code {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  color: #2d1a21;
+}
+
+.carousel-item {
+  height: 80vh;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  padding: 2rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(246, 180, 206, 0.8);
+  border-radius: 50%;
+  padding: 1.5rem;
+  background-size: 50%;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: var(--custom-button-text);
+  opacity: 0.5;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+}
+
+/* ===== СЕКЦИЯ С ИСТОРИЯМИ ===== */
+.stories-section {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+/* Широкий контейнер с отступами по бокам */
+.container-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;  /* отступы по бокам */
+}
+
+/* Заголовок секции */
+.stories-title {
+  color: #3f202b;
+  font-weight: 600;
+  margin: 2rem 0 3rem;
+  text-align: center;
+  font-size: 2.2rem;
+  position: relative;
+}
+
+.stories-title:after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
+
+/* Карточка истории - на всю ширину контейнера */
+.story-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  width: 100%;  /* на всю ширину контейнера */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin-bottom: 2rem;  /* отступ между карточками */
+}
+
+.story-card:last-child {
+  margin-bottom: 0;
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(246, 180, 206, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Изображение слева */
+.story-image {
+  width: 300px;  /* фиксированная ширина для красивых пропорций */
+  object-fit: cover;
+  min-height: 250px;
+  flex-shrink: 0;  /* чтобы не сжималось */
+}
+
+/* Контент справа */
+.story-content {
+  flex: 1;  /* занимает всё оставшееся место */
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.story-title {
+  color: #3f202b;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.story-text {
+  color: #2d1a21;
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Мета-информация */
+.story-meta {
+  color: rgba(63, 32, 43, 0.7);
+  font-size: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.story-date {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.date-icon {
+  font-size: 1.2rem;
+}
+
+.story-tag {
+  background-color: rgba(246, 180, 206, 0.3);
+  color: #3f202b;
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Кнопка "Читать далее" */
+.story-button {
+  background-color: #ffffff;
+  color: var(--custom-button-text);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.story-button:hover {
+  background-color: #f2f2f2;
+  color: var(--custom-button-text);
+  transform: scale(1.05);
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(246, 180, 206, 0.4);
+}
+
+/* Кнопка "Показать еще" */
+.btn-custom {
+  background-color: #ffffff !important;
+  color: var(--custom-button-text) !important;
+  border: none !important;
+  border-radius: 2rem !important;
+  padding: 0.8rem 2.5rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn-custom:hover {
+  background-color: #f2f2f2 !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 6px 20px rgba(246, 180, 206, 0.4) !important;
+}
+
+/* Подсказка */
+.custom-description {
+  color: #2d1a21;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1200px) {
+  .container-wide {
+    padding: 0 2.5rem;
+  }
+  
+  .story-image {
+    width: 280px;
+  }
+  
+  .story-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .container-wide {
+    padding: 0 2rem;
+  }
+  
+  .story-image {
+    width: 250px;
+  }
+  
+  .story-content {
+    padding: 1.8rem;
+  }
+  
+  .story-title {
+    font-size: 1.5rem;
+  }
+  
+  .story-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    height: 60vh;
+  }
+  
+  .carousel-item img {
+    padding: 1rem;
+  }
+  
+  .container-wide {
+    padding: 0 1.5rem;
+  }
+  
+  .stories-title {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 2rem;
+  }
+  
+  /* На мобильных карточка становится вертикальной */
+  .story-card {
+    flex-direction: column;
+  }
+  
+  .story-image {
+    width: 100%;
+    height: 220px;
+  }
+  
+  .story-content {
+    padding: 1.5rem;
+  }
+  
+  .story-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .story-meta {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-wide {
+    padding: 0 1rem;
+  }
+  
+  .story-content {
+    padding: 1.2rem;
+  }
+  
+  .story-title {
+    font-size: 1.3rem;
+  }
+  
+  .story-meta {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  
+  .btn-custom {
+    padding: 0.6rem 1.8rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* ===== СТИЛИ ДЛЯ ХЕДЕРА ===== */
+
+.header {
+  background-color: rgba(255, 255, 255, 0.15);  /* полупрозрачный белый */
+  backdrop-filter: blur(10px);  /* размытие фона */
+  padding: 0.3rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+}
+
+/* Логотип/надпись слева */
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.logo-link:hover {
+  transform: scale(1.02);
+  text-decoration: none;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #3f202b;  /* темно-бордовый, как заголовки */
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.logo-emoji {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  animation: gentleWobble 3s ease-in-out infinite;
+}
+
+/* Анимация для цветочка */
+@keyframes gentleWobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+/* Навигация справа */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Кнопка в стиле сайта */
+.header-button {
+  background-color: #ffffff;
+  color: var(--custom-button-text);
+  border: none;
+  border-radius: 3rem;
+  padding: 0.3rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(246, 180, 206, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-button:hover {
+  background-color: #f2f2f2;
+  color: var(--custom-button-text);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(246, 180, 206, 0.4);
+  text-decoration: none;
+}
+
+.header-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(246, 180, 206, 0.3);
+}
+
+.button-icon {
+  font-size: 1.2rem;
+}
+
+/* Специально для мобильной версии */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 0;
+  }
+  
+  .header-content {
+    min-height: 60px;
+  }
+  
+  .logo-text {
+    font-size: 1.4rem;
+  }
+  
+  .logo-emoji {
+    font-size: 1.6rem;
+  }
+  
+  .header-button {
+    padding: 0.4rem 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .button-icon {
+    font-size: 1.1rem;
+  }
+  
+  .button-text {
+    display: inline;  /* всегда показываем текст */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  
+  .logo-emoji {
+    font-size: 1.4rem;
+  }
+  
+  .header-button {
+    padding: 0.4rem 1rem;
+  }
+  
+  /* Если хочешь скрыть текст на очень маленьких экранах, раскомментируй: */
+  /*
+  .button-text {
+    display: none;
+  }
+  
+  .header-button {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .button-icon {
+    font-size: 1.3rem;
+  }
+  */
+}
+
+/* Для страницы альбома - если нужно переопределить кнопку */
+.album-header-button {
+  /* можно добавить специфические стили для альбома */
+}
+
+/* Контейнер как в альбоме */
+.container-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+@media (max-width: 1200px) {
+  .container-wide {
+    padding: 0 2.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .container-wide {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-wide {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-wide {
+    padding: 0 1rem;
+  }
+}
+
+/* Основной контент */
+.main-content {
+  flex: 1;  /* занимает всё свободное место между хедером и подвалом */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-button {
+  background-color: #ffffff !important;  /* белый фон */
+  border: none !important;
+  border-radius: 2rem;
+  padding: 0.4rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none !important;  /* УБИРАЕМ ПОДЧЕРКИВАНИЕ */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(246, 180, 206, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-button:hover {
+  background-color: #f2f2f2 !important;  /* чуть темнее при наведении */
+  color: var(--custom-button-text) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(246, 180, 206, 0.4);
+  text-decoration: none !important;  /* УБИРАЕМ ПОДЧЕРКИВАНИЕ ПРИ НАВЕДЕНИИ */
+}
+
+.header-button:active {
+  background-color: #e6e6e6 !important;
+  color: var(--custom-button-text) !important;
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(246, 180, 206, 0.3);
+  text-decoration: none !important;
+}
+
+.header-button:focus {
+  text-decoration: none !important;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(246, 180, 206, 0.5);
+}
+
+.button-icon {
+  font-size: 1rem;
+  filter: none;  /* убираем возможные эффекты */
+}
+
+.button-text {
+  text-decoration: none !important;  /* и текст тоже без подчеркивания */
+}
+
+/* Также убедимся, что любые ссылки внутри хедера не подчеркиваются */
+.header a,
+.header-nav a,
+.header-button * {
+  text-decoration: none !important;
+}
+
+/* Исправляем глобальные стили для ссылок */
+a:not(.btn-custom):not(.btn):not(.header-button):not(.logo-link) {
+  color: #7b3f4f;
+  text-decoration: underline;  /* подчеркивание только для обычных ссылок, не для кнопок */
+}
+
+/* Стили для логотипа (тоже без подчеркивания) */
+.logo-link {
+  text-decoration: none !important;
+}
+
+.logo-link:hover {
+  text-decoration: none !important;
+}
+
+
+/* Центрирование для главной страницы */
+.index-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px - 4rem);  /* высота экрана минус хедер и отступы */
+  width: 100%;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .index-wrapper {
+    min-height: calc(100vh - 60px - 3rem);  /* меньше хедер на мобильных */
+  }
+}

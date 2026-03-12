@@ -1,0 +1,25 @@
+{% load static %}
+{% with request.resolver_match.view_name as view_name %}
+{% if view_name != 'home:index' %}
+<header class="header">
+	<div class="container-wide">
+		<div class="header-content">
+			<div class="header-logo">
+				<a href="/" class="logo-link">
+					<span class="logo-text">8 марта</span>
+					<span class="logo-emoji">🌷</span>
+				</a>
+			</div>
+			<div class="header-nav">
+				{% block header_buttons %}
+				<a href="/" class="header-button">
+					<span class="button-icon">🏠</span>
+					<span class="button-text">Вернуться на главную</span>
+				</a>
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+</header>
+{% endif %}
+{% endwith %}

@@ -7,7 +7,11 @@ SECRET_KEY = 'django-insecure-dxd^)*)2xavb!2#%n=)dat13^!)+0(_6xb2xyzd54kd*oks*iv
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'www.ezh7k.pythonanywhere.com',
+    'ezh7k.pythonanywhere.com',
+    '127.0.0.1',
+]
 
 
 INSTALLED_APPS = [
@@ -18,9 +22,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'homepage.apps.HomepageConfig',
+    'django_bootstrap5',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -35,7 +43,7 @@ ROOT_URLCONF = 'eight_march.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,7 +92,19 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+STATIC_ROOT = '/home/ezh7k/eight_march_public/eight_march/static_dev'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static_dev/',
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.MyUser'
+
+MEDIA_ROOT = BASE_DIR / 'media/'
+MEDIA_URL = '/media/'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]

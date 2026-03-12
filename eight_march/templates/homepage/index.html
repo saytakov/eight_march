@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+Выбор любимого
+{% endblock title %}
+
+{% block content %}
+<div class="index-wrapper">
+  <div class="container text-center text-md-start">
+    <div class="row justify-content-center align-items-center g-4">
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="p-4 p-xl-5 custom-card">
+          <h1 class="display-5 fw-bold mb-3 custom-title">C 8 марта, мои любимые девчонки!</h1>
+          <h2>
+            <span class="white-text">
+            Мои родные, оставайтесь такими же прекрасными, радуйте нас своей красотой!
+            </span>
+          </h2>
+          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-center">
+            {% for recepient in recepients %}
+              <a class='btn-custom' href="{% url 'home:album' recepient.slug %}">{{ recepient.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
