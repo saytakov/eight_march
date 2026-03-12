@@ -15,9 +15,9 @@ pip install -r requirements.txt
 /eight_march python manage.py runserver
 
 
-Сайт реализован на Django
-БД SQLite
-Запросы реализуются через Django ORM
-Была расширена модель User для удобного добавления полей в будущем
-Написаны тесты на unittest
-Также подключен Django Debug Toolbar для отладки
+Сайт реализован на Django<br>
+БД SQLite<br>
+Запросы реализуются через Django ORM<br>
+Была расширена модель User для удобного добавления полей в будущем<br>
+Написаны тесты на unittest<br>
+Также подключен Django Debug Toolbar для отладки<br>
